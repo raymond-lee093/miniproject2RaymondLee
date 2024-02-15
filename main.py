@@ -21,27 +21,28 @@ import matplotlib.pyplot as plt
 
 # From years 2010-2022, What do people in the United States spend the most money on for Valentine's Day?
 
-# Graph 1
+##### Graph 1
 
 # Reads data in gifts_age.csv file and assigns it to giftsByAge_dat
 giftsByAge_data = pd.read_csv("valentinesDayConsumerData/gifts_age.csv", index_col=0)
 
-# Plot the data
-giftsByAge_data.plot()
+# Plot the data, edited arguments in method call
+giftsByAge_data.plot(figsize=(12,12), linewidth=4, fontsize=20)
 
 # Set y-axis limits
 plt.ylim(0, 80)
 
-# Set graph labels
-plt.xlabel("Age Group (years)")
-plt.ylabel("Average Price (dollars)")
-plt.title("2010 to 2022 Consumer Spending patterns on Valentines Day Gifts", pad=15)
-plt.legend(title='Gifts', loc='upper right')
+# Set graph labels, edited arguments in method call
+plt.xlabel("Age Group (years)", fontsize=20)
+plt.ylabel("Average Price (dollars)", fontsize=20)
+plt.title("2010 to 2022 Consumer Spending patterns on Valentines Day Gifts", pad=45, fontsize=20)
+plt.legend(title='Gifts', title_fontsize=13, loc='upper right', fontsize=12)
 
 # Set gridlines
 plt.grid(True)
 
 # Display graph
 plt.show()
+
 
 
