@@ -4,7 +4,7 @@
 
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from pathlib import Path
 
 #(5/5 points) Proper import of packages used.
 #(20/20 points) Using a data source of your choice, such as data from data.gov or using the Faker package, generate or retrieve some data for creating basic statistics on. This will generally come in as json data, etc.
@@ -20,6 +20,12 @@ import matplotlib.pyplot as plt
 # (20/20 points) There should be a README.md file in your project that explains what your project is, how to install the pip requirements, and how to execute the program. Please use the GitHub flavor of Markdown. Be thorough on the explanations.
 
 # From years 2010-2022, What do people in the United States spend the most money on for Valentine's Day?
+
+# Create charts directory to store png files of graphs
+try:
+    Path("charts").mkdir()
+except FileExistsError:
+    pass
 
 ##### Graph 1
 
@@ -40,6 +46,8 @@ plt.legend(title='Gifts', title_fontsize=13, loc='upper right', fontsize=12)
 
 # Set gridlines
 plt.grid(True)
+
+
 
 ##### Graph 2
 
@@ -63,6 +71,8 @@ plt.title("Historical Spending on Valentine\'s Day (Per Person)", fontsize=17)
 
 # Set the x-axis ticks to include all years
 plt.xticks(year)
+
+
 
 ##### Graph 3
 
@@ -92,6 +102,8 @@ plt.xticks(year)
 
 # Set gridlines
 plt.grid(True)
+
+
 
 ##### Graph 4 and 5
 
@@ -123,5 +135,7 @@ subPlot_obj[0].legend(fontsize=15)
 subPlot_obj[1].legend(fontsize=15)
 
 
+
 # Show graphs
 plt.show()
+
