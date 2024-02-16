@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 # Reads data in gifts_age.csv file and assigns it to giftsByAge_dat
 giftsByAge_data = pd.read_csv("valentinesDayConsumerData/gifts_age.csv", index_col=0)
 
-# Plot the data, edited arguments in method call
+# Plot the line graph, edited arguments in method call
 giftsByAge_data.plot(figsize=(12,12), linewidth=4, fontsize=20)
 
 # Set y-axis limits
@@ -35,14 +35,36 @@ plt.ylim(0, 80)
 # Set graph labels, edited arguments in method call
 plt.xlabel("Age Group (years)", fontsize=20)
 plt.ylabel("Average Price (dollars)", fontsize=20)
-plt.title("2010 to 2022 Consumer Spending patterns on Valentines Day Gifts", pad=45, fontsize=20)
+plt.title("Years 2010 to 2022 Consumer Spending patterns on Valentine\'s Day Gifts", pad=45, fontsize=20)
 plt.legend(title='Gifts', title_fontsize=13, loc='upper right', fontsize=12)
 
 # Set gridlines
 plt.grid(True)
 
-# Display graph
-plt.show()
+##### Graph 2
 
+# Reads data in historical_spending.csv file and assigns it to giftsByAge_dat
+histSpending_data = pd.read_csv("valentinesDayConsumerData/historical_spending.csv", index_col=0)
+
+
+# Extract the year and prices columns
+year = histSpending_data.index
+prices = histSpending_data['PerPerson']
+
+# Set figure size
+plt.figure(figsize=(10, 6))
+
+# Plot the bar graph
+plt.bar(year, prices, color='pink')
+
+# Set graph labels
+plt.xlabel("Years")
+plt.ylabel("Average Price (dollars)")
+plt.title("Historical Spending on Valentine\'s Day (Per Person)")
+
+# Set the x-axis ticks to years in graph
+plt.xticks(year)
+
+plt.show()
 
 
