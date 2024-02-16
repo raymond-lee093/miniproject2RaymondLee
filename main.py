@@ -47,7 +47,9 @@ plt.legend(title='Gifts', title_fontsize=13, loc='upper right', fontsize=12)
 # Set gridlines
 plt.grid(True)
 
-
+# Saving the Graph 1
+savefile = "charts/" + "GRAPH1" + ".png"
+plt.savefig(savefile)
 
 ##### Graph 2
 
@@ -72,7 +74,9 @@ plt.title("Historical Spending on Valentine\'s Day (Per Person)", fontsize=17)
 # Set the x-axis ticks to include all years
 plt.xticks(year)
 
-
+# Saving the Graph 2
+savefile = "charts/" + "GRAPH2" + ".png"
+plt.savefig(savefile)
 
 ##### Graph 3
 
@@ -103,7 +107,9 @@ plt.xticks(year)
 # Set gridlines
 plt.grid(True)
 
-
+# Saving the Graph 3
+savefile = "charts/" + "GRAPH3" + ".png"
+plt.savefig(savefile)
 
 ##### Graph 4 and 5
 
@@ -134,7 +140,9 @@ plt.xticks(rotation=10)
 subPlot_obj[0].legend(fontsize=15)
 subPlot_obj[1].legend(fontsize=15)
 
-
+# Saving the Graph 4 and Graph5
+savefile = "charts/" + "GRAPH4andGRAPH5" + ".png"
+plt.savefig(savefile)
 
 # Show graphs
 plt.show()
