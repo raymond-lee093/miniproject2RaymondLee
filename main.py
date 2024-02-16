@@ -41,7 +41,7 @@ plt.ylim(0, 80)
 # Set graph labels, edited arguments in method call
 plt.xlabel("Age Group (years)", fontsize=17)
 plt.ylabel("Spending Average (dollars)", fontsize=17)
-plt.title("Years 2010 to 2022 Consumer Spending patterns on Valentine\'s Day Gifts", pad=35, fontsize=22)
+plt.title("Years 2010 to 2022 Consumer Spending on Valentine\'s Day Gifts", pad=35, fontsize=22)
 plt.legend(title='Gifts', title_fontsize=13, loc='upper right', fontsize=12)
 
 # Set gridlines
@@ -131,7 +131,7 @@ plt.ylabel("Spending Average (dollars)", fontsize=15)
 # Vertically set y-axis label
 plt.gca().yaxis.set_label_coords(-0.07, 1)
 # Set a single title for the entire figure
-plt.suptitle("Years 2010 to 2022 Consumer Spending patterns on Valentine\'s Day Gifts (Men vs. Women)",
+plt.suptitle("Years 2010 to 2022 Consumer Spending on Valentine\'s Day Gifts (Men vs. Women)",
              fontsize=18, y=0.95)
 # Rotate x-axis tick labels by 45 degrees
 plt.xticks(rotation=10)
