@@ -27,15 +27,15 @@ import matplotlib.pyplot as plt
 giftsByAge_data = pd.read_csv("valentinesDayConsumerData/gifts_age.csv", index_col=0)
 
 # Plot the line graph, edited arguments in method call
-giftsByAge_data.plot(figsize=(12,12), linewidth=4, fontsize=20)
+giftsByAge_data.plot(figsize=(12,12), linewidth=4, fontsize=22)
 
 # Set y-axis limits
 plt.ylim(0, 80)
 
 # Set graph labels, edited arguments in method call
-plt.xlabel("Age Group (years)", fontsize=20)
-plt.ylabel("Average Price (dollars)", fontsize=20)
-plt.title("Years 2010 to 2022 Consumer Spending patterns on Valentine\'s Day Gifts", pad=45, fontsize=20)
+plt.xlabel("Age Group (years)", fontsize=17)
+plt.ylabel("Spending Average (dollars)", fontsize=17)
+plt.title("Years 2010 to 2022 Consumer Spending patterns on Valentine\'s Day Gifts", pad=35, fontsize=22)
 plt.legend(title='Gifts', title_fontsize=13, loc='upper right', fontsize=12)
 
 # Set gridlines
@@ -56,10 +56,10 @@ plt.figure(figsize=(10, 6))
 # Plot the bar graph
 plt.bar(year, prices, color='pink')
 
-# Set graph labels
-plt.xlabel("Years")
-plt.ylabel("Average Price (dollars)")
-plt.title("Historical Spending on Valentine\'s Day (Per Person)")
+# Set graph labels, edited arguments in method call
+plt.xlabel("Years", fontsize=14.5)
+plt.ylabel("Spending Average (dollars)", fontsize=14.5)
+plt.title("Historical Spending on Valentine\'s Day (Per Person)", fontsize=17)
 
 # Set the x-axis ticks to include all years
 plt.xticks(year)
@@ -67,7 +67,7 @@ plt.xticks(year)
 ##### Graph 3
 
 # Continuation of using histSpending_data
-# Drop the 'PerPerson' column
+# Drop the "PerPerson" and "PercentCelebrating" column
 histSpending_data = histSpending_data.drop(columns=["PerPerson", "PercentCelebrating"])
 
 # Set figure size
@@ -79,9 +79,9 @@ for column in histSpending_data.columns:
     plt.scatter(histSpending_data.index, histSpending_data[column], label=column, s=100)
 
 # Set graph labels, edited arguments in method call
-plt.xlabel("Years")
-plt.ylabel("Average Price (dollars)")
-plt.title("Historical Spending on Gifts for Valentine\'s Day ")
+plt.xlabel("Years", fontsize=14.5)
+plt.ylabel("Spending Average (dollars)", fontsize=14.5)
+plt.title("Historical Spending on Gifts for Valentine\'s Day ", fontsize=17)
 plt.legend(title="Gifts", fontsize=7)
 
 # Set y-axis limits
@@ -92,6 +92,36 @@ plt.xticks(year)
 
 # Set gridlines
 plt.grid(True)
+
+##### Graph 4 and 5
+
+# Reads data in gifts_gender.csv file and assigns it to giftsByAge_dat
+giftsByGender_data = pd.read_csv("valentinesDayConsumerData/gifts_gender.csv", index_col=0)
+
+# Transpose the DataFrame rows and column swap
+transposed_data = giftsByGender_data.transpose()
+
+# Set fontsize for the entire figure
+plt.rcParams.update({'font.size': 12})
+
+# Plot the subplot graphs, assign the objects, edited arguments in method call
+subPlot_obj= transposed_data.plot.area(figsize=(12, 7), subplots=True, color=["teal", "purple"])
+
+# Set graph labels, edited arguments in method call
+plt.xlabel("Gifts", fontsize=15, labelpad=0)
+plt.ylabel("Spending Average (dollars)", fontsize=15)
+# Vertically set y-axis label
+plt.gca().yaxis.set_label_coords(-0.07, 1)
+# Set a single title for the entire figure
+plt.suptitle("Years 2010 to 2022 Consumer Spending patterns on Valentine\'s Day Gifts (Men vs. Women)",
+             fontsize=18, y=0.95)
+# Rotate x-axis tick labels by 45 degrees
+plt.xticks(rotation=10)
+
+# Set larger legend for both subplots
+subPlot_obj[0].legend(fontsize=15)
+subPlot_obj[1].legend(fontsize=15)
+
 
 # Show graphs
 plt.show()
