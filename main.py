@@ -19,7 +19,7 @@ from pathlib import Path
 #(10/10 points) I will be checking out the main branch of your project. Please be sure to include a requirements.txt file which contains all the packages that need installed. You can create this fille with the output of pip freeze at the terminal prompt.
 # (20/20 points) There should be a README.md file in your project that explains what your project is, how to install the pip requirements, and how to execute the program. Please use the GitHub flavor of Markdown. Be thorough on the explanations.
 
-# From years 2010-2022, What do people in the United States spend the most money on for Valentine's Day?
+# What is the primary expenditure for Valentine's Day among Americans from 2010 to 2022?
 
 # Create charts directory to store png files of graphs
 try:
@@ -29,7 +29,7 @@ except FileExistsError:
 
 ##### Graph 1
 
-# Reads data in gifts_age.csv file and assigns it to giftsByAge_dat
+# Creates a dataframe and reads data from gifts_age.csv file and assigns it to giftsByAge_dat
 giftsByAge_data = pd.read_csv("valentinesDayConsumerData/gifts_age.csv", index_col=0)
 
 # Plot the line graph, edited arguments in method call
@@ -53,7 +53,7 @@ plt.savefig(savefile)
 
 ##### Graph 2
 
-# Reads data in historical_spending.csv file and assigns it to giftsByAge_dat
+# Creates a dataframe and reads data from historical_spending.csv file and assigns it to giftsByAge_dat
 histSpending_data = pd.read_csv("valentinesDayConsumerData/historical_spending.csv", index_col=0)
 
 # Extract the year and prices columns
@@ -113,7 +113,7 @@ plt.savefig(savefile)
 
 ##### Graph 4 and 5
 
-# Reads data in gifts_gender.csv file and assigns it to giftsByAge_dat
+# Creates a dataframe and reads data from gifts_gender.csv file and assigns it to giftsByAge_dat
 giftsByGender_data = pd.read_csv("valentinesDayConsumerData/gifts_gender.csv", index_col=0)
 
 # Transpose the DataFrame rows and column swap
