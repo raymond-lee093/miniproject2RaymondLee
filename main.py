@@ -6,18 +6,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-#(5/5 points) Proper import of packages used.
-#(20/20 points) Using a data source of your choice, such as data from data.gov or using the Faker package, generate or retrieve some data for creating basic statistics on. This will generally come in as json data, etc.
-#Think of some question you would like to solve such as:
-#"How many homes in the US have access to 100Mbps Internet or more?"
-#"How many movies that Ridley Scott directed is on Netflix?" - https://www.kaggle.com/datasets/shivamb/netflix-shows
-#Here are some other great datasets: https://www.kaggle.com/datasets
-#(10/10 points) Store this information in Pandas dataframe. These should be 2D data as a dataframe, meaning the data is labeled tabular data.
-#(10/10 points) Using matplotlib, graph this data in a way that will visually represent the data. Really try to build some fancy charts here as it will greatly help you in future homework assignments and in the final project.
-#(10/10 points) Save these graphs in a folder called charts as PNG files. Do not upload these to your project folder, the project should save these when it executes. You may want to add this folder to your .gitignore file.
-#(10/10 points) There should be a minimum of 5 commits on your project, be sure to commit often!
-#(10/10 points) I will be checking out the main branch of your project. Please be sure to include a requirements.txt file which contains all the packages that need installed. You can create this fille with the output of pip freeze at the terminal prompt.
-# (20/20 points) There should be a README.md file in your project that explains what your project is, how to install the pip requirements, and how to execute the program. Please use the GitHub flavor of Markdown. Be thorough on the explanations.
 
 # What is the primary expenditure for Valentine's Day among Americans from 2010 to 2022?
 
@@ -27,7 +15,7 @@ try:
 except FileExistsError:
     pass
 
-##### Graph 1
+##### Line graph
 
 # Creates a dataframe and reads data from gifts_age.csv file and assigns it to giftsByAge_dat
 giftsByAge_data = pd.read_csv("valentinesDayConsumerData/gifts_age.csv", index_col=0)
@@ -47,11 +35,11 @@ plt.legend(title='Gifts', title_fontsize=13, loc='upper right', fontsize=12)
 # Set gridlines
 plt.grid(True)
 
-# Saving the Graph 1
+# Saving the line graph
 savefile = "charts/" + "lineGraph" + ".png"
 plt.savefig(savefile)
 
-##### Graph 2
+##### Bar graph
 
 # Creates a dataframe and reads data from historical_spending.csv file and assigns it to giftsByAge_dat
 histSpending_data = pd.read_csv("valentinesDayConsumerData/historical_spending.csv", index_col=0)
@@ -74,11 +62,11 @@ plt.title("Historical Spending on Valentine\'s Day (Per Person)", fontsize=17)
 # Set the x-axis ticks to include all years
 plt.xticks(year)
 
-# Saving the Graph 2
+# Saving the bar graph
 savefile = "charts/" + "barGraph" + ".png"
 plt.savefig(savefile)
 
-##### Graph 3
+##### Scatter plot graph
 
 # Continuation of using histSpending_data
 # Drop the "PerPerson" and "PercentCelebrating" column
@@ -107,11 +95,11 @@ plt.xticks(year)
 # Set gridlines
 plt.grid(True)
 
-# Saving the Graph 3
+# Saving the scatter plot graph
 savefile = "charts/" + "scatterPlot" + ".png"
 plt.savefig(savefile)
 
-##### Graph 4 and 5
+##### Subplot graphs
 
 # Creates a dataframe and reads data from gifts_gender.csv file and assigns it to giftsByAge_dat
 giftsByGender_data = pd.read_csv("valentinesDayConsumerData/gifts_gender.csv", index_col=0)
@@ -140,7 +128,7 @@ plt.xticks(rotation=10)
 subPlot_obj[0].legend(fontsize=15)
 subPlot_obj[1].legend(fontsize=15)
 
-# Saving the Graph 4 and Graph5
+# Saving the subplot graphs
 savefile = "charts/" + "subplotGraphs" + ".png"
 plt.savefig(savefile)
 
