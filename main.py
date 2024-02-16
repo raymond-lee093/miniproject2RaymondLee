@@ -46,7 +46,6 @@ plt.grid(True)
 # Reads data in historical_spending.csv file and assigns it to giftsByAge_dat
 histSpending_data = pd.read_csv("valentinesDayConsumerData/historical_spending.csv", index_col=0)
 
-
 # Extract the year and prices columns
 year = histSpending_data.index
 prices = histSpending_data['PerPerson']
@@ -62,9 +61,37 @@ plt.xlabel("Years")
 plt.ylabel("Average Price (dollars)")
 plt.title("Historical Spending on Valentine\'s Day (Per Person)")
 
-# Set the x-axis ticks to years in graph
+# Set the x-axis ticks to include all years
 plt.xticks(year)
 
+##### Graph 3
+
+# Continuation of using histSpending_data
+# Drop the 'PerPerson' column
+histSpending_data = histSpending_data.drop(columns=["PerPerson", "PercentCelebrating"])
+
+# Set figure size
+plt.figure(figsize=(10, 6))
+
+# Plot the scatter plot
+for column in histSpending_data.columns:
+    # Set x value and y value for data, set label for legend, set size for dots on graph
+    plt.scatter(histSpending_data.index, histSpending_data[column], label=column, s=100)
+
+# Set graph labels, edited arguments in method call
+plt.xlabel("Years")
+plt.ylabel("Average Price (dollars)")
+plt.title("Historical Spending on Gifts for Valentine\'s Day ")
+plt.legend(title="Gifts", fontsize=7)
+
+# Set y-axis limits
+plt.ylim(0, 50)
+
+# Set the x-axis ticks to include all years
+plt.xticks(year)
+
+# Set gridlines
+plt.grid(True)
+
+# Show graphs
 plt.show()
-
-
